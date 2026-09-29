@@ -14,5 +14,13 @@
     "ejs": "^6.0.1",
     "express": "^5.2.1",
     "mongoose": "^9.10.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rohan01002/project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Rohan01002/project/issues"
+  },
+  "homepage": "https://github.com/Rohan01002/project#readme"
 }
