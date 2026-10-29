@@ -28,24 +28,24 @@ app.get('/listings',async (req,res)=>{
     const alllistings=await Listing.find({});
     res.render('listings/index.ejs',{alllistings});
 })
+//new route
+app.get('/listings/new',(req,res)=>{
+    res.render('listings/new.ejs');
+});
 //show route
 app.get('/listings/:id',async (req,res)=>{
     let {id}=req.params;
     const listing=await Listing.findById(id);
     res.render('listings/show.ejs',{listing});
 });
-//new route
-app.get('/listings/new',(req,res)=>{
-    res.render('listings/new.ejs');
-})
-// app.get("/testlisting",async (req,res)=>{
-//     let sampleListing=new Listing({
-//         title:"Sample Listing",
-//         description:"This is a sample listing for testing purposes.",
-//         price:100,
-//         location:"Sample Location",
-//         country:"Sample Country"
-//     });
-//     sampleListing.save();
+//create route
+app.post('/listings',async (req,res)=>{
+   const newListing=new Listing(req.body.listing);
+   await newListing.save();
+   res.redirect('/listings');
+});
+//edit route
+app.get('/listings/:id/edit',async (req,res)=>{
+
 //     res.send("Test listing created");
 // });
